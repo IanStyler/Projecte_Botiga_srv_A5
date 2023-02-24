@@ -2,6 +2,8 @@
   "name": "Prjecte_Botiga_node_srv",
   "version": "1.0.0",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0"
   }
 }
