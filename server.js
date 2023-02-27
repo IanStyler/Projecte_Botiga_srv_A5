@@ -29,7 +29,11 @@ async function dbConnection(){
     if (!doc.exists){
         console.log("El document no existeix!")
     }else{
-            app.get('/api/firebase',(req,res)=>{
+            app.get('/api/firebase',async (req, res) => {
+
+                const conn = db.collection("book-net").doc("clients");
+                const doc = await conn.get();
+
                 const document = doc.data();
                 res.json(document);
             })
