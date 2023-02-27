@@ -21,17 +21,19 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 const db = getFirestore();
-dbConnection();
+    dbConnection();
+
 async function dbConnection(){
     const conn = db.collection("book-net").doc("clients");
     const doc = await conn.get();
     if (!doc.exists){
         console.log("El document no existeix!")
     }else{
-        app.get('/api/firebase',(req,res)=>{
-            const document = doc.data();
-            res.json(document);
-        })
+            app.get('/api/firebase',(req,res)=>{
+                const document = doc.data();
+                res.json(document);
+            })
+
     }
 }
 app.post('/signup', async (req, res) =>{
