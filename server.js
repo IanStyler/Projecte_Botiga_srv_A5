@@ -59,3 +59,14 @@ app.post('/datausers',(req, res) => {
             Telèfon: req.body.Telèfon})
     },{merge:true})
 })
+
+app.post('/datausersdelete',(req, res) => {
+    db.collection("book-net").doc("clients").update({
+        clients: FieldValue.arrayRemove({
+            Adreça: req.body.Adreça,
+            Cognoms: req.body.Cognoms,
+            Correu: req.body.Correu,
+            Nom: req.body.Nom,
+            Telèfon: req.body.Telèfon})
+    })
+})
